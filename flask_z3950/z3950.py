@@ -25,7 +25,7 @@ class Z3950Manager(object):
         self.app = app
         db_config = app.config.get('Z3950_DATABASES', {})
         self.databases = {}
-        for name, config in db_config.items():
+        for name, config in list(db_config.items()):
             db = Z3950Database(**config)
             self.databases[name] = db
 

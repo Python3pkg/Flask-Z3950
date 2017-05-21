@@ -29,5 +29,5 @@ class TestDataset():
         assert json.loads(json_data).get('number') == 42
 
     def test_dataset_metadata_included_in_json(self, dataset):
-        base_keys = json.loads(dataset.to_json()).keys()
+        base_keys = list(json.loads(dataset.to_json()).keys())
         assert set(dataset.metadata.keys()).issubset(set(base_keys))

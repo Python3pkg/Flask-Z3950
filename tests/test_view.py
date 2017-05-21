@@ -212,8 +212,8 @@ class TestView():
             app.extensions['z3950']['z3950_manager'] = mock_manager
             resp = view.databases()
             json_data = json.loads(resp.data)
-            assert json_data['data'] == {u'db': {u'host': u'somehost',
-                                                 u'elem_set_name': u'F',
-                                                 u'db': u'somedb',
-                                                 u'port': 123,
-                                                 u'syntax': u'USMARC'}}
+            assert json_data['data'] == {'db': {'host': 'somehost',
+                                                 'elem_set_name': 'F',
+                                                 'db': 'somedb',
+                                                 'port': 123,
+                                                 'syntax': 'USMARC'}}

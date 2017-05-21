@@ -20,7 +20,7 @@ def app():
 
 @pytest.fixture
 def z3950_db():
-    config = getattr(settings, 'Z3950_DATABASES').values()[0]
+    config = list(getattr(settings, 'Z3950_DATABASES').values())[0]
     return Z3950Database(**config)
 
 

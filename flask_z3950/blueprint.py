@@ -21,7 +21,7 @@ class Z3950Blueprint(Blueprint):
         super(Z3950Blueprint, self).__init__(**defaults)
         url_map = self._url_map()
 
-        for url, view_func in url_map.iteritems():
+        for url, view_func in url_map.items():
             self.add_url_rule(url, view_func=view_func)
         self.add_app_template_filter(self.humanize_int)
 

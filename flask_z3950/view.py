@@ -15,7 +15,7 @@ def error_status(e):
              "UnicodeDecodeError": 500
              }
     name = e.__class__.__name__
-    if name not in codes.keys():
+    if name not in list(codes.keys()):
         return 500
 
     return codes[name]
@@ -180,7 +180,7 @@ def databases():
     """List the available Z39.50 databases in JSON format."""
     z3950_manager = current_app.extensions['z3950']['z3950_manager']
     dbs = {}
-    for k, v in z3950_manager.databases.items():
+    for k, v in list(z3950_manager.databases.items()):
         dbs[k] = {'db': v.db, 'host': v.host, 'port': v.port,
                   'syntax': v.syntax, 'elem_set_name': v.elem_set_name}
     resp = {'status': 'success', 'data': dbs,

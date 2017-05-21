@@ -18,7 +18,7 @@ class TestZ3950Manager():
 
     def test_multiple_databases_loaded(self, app):
         z3950_manager = app.extensions['z3950']['z3950_manager']
-        db_names = z3950_manager.databases.keys()
+        db_names = list(z3950_manager.databases.keys())
         assert db_names == ['loc', 'copac']
 
 
